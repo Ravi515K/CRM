@@ -1,10 +1,13 @@
-import Home from "./components";
+import SidebarWrapper from "./components/SidebarWrapper";
+import Home from "./Pages/Home";
 
 function App() {
   return (
-    <>
-      <Home />
-    </>
+    <div className="w-full h-screen flex items-start">
+      <SidebarWrapper>
+        <Home />
+      </SidebarWrapper>
+    </div>
   );
 }
 

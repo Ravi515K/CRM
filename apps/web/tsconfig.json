@@ -9,7 +9,7 @@
     "strict": true,
     
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/global.constant.tsx"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
