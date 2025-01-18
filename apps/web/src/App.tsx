@@ -1,4 +1,4 @@
-import SidebarWrapper from "./components/SidebarWrapper";
+import SidebarWrapper from "./components/Wrappers/SidebarWrapper";
 import Home from "./Pages/Home";
 
 function App() {
