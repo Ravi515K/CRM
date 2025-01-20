@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Navbar from "../Navbar";
-import SideBar from "../SideBar";
+import Navbar from "../Navbar/Navbar";
+import SideBar from "../Sidebar/SideBar";
 
-const SidebarWrapper = ({ children }: { children: any }) => {
+const SidebarWrapper = ({ children }: { children?: any }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="w-full h-full flex gap-5 px-2">
