@@ -1,0 +1,36 @@
+{
+  "name": "practice-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "pre-commit": "lint-staged"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.1",
+    "prettier": "^3.2.5",
+    "turbo": "^2.4.4",
+    "typescript": "5.5.4"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,md}": [
+      "eslint . --report-unused-disable-directives --max-warnings 0"
+    ]
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "npm@10.2.3",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "framer-motion": "^12.4.1",
+    "react-router-dom": "^7.1.5",
+    "vite": "^6.0.7"
+  }
+}

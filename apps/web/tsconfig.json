@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@":["./src/*"],
+    },
+    "declaration": true,
+    "outDir": "./dist",
+    "strict": true,
+    
+  },
+  "include": ["src/**/*.ts", "src/global.constant.tsx"],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
