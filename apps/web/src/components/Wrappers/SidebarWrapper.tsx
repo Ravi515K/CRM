@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navbar from "../Navbar/Navbar";
 import SideBar from "../Sidebar/SideBar";
 
 const SidebarWrapper = ({ children }: { children?: any }) => {
@@ -13,7 +12,7 @@ const SidebarWrapper = ({ children }: { children?: any }) => {
         <SideBar open={open} setOpen={setOpen} />
       </section>
       <section className="flex flex-col gap-4 flex-1">
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
       </section>
     </div>

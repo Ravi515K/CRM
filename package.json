@@ -12,11 +12,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.4.1",
     "prettier": "^3.2.5",
-<<<<<<< HEAD
-    "turbo": "^2.3.3",
-=======
     "turbo": "^2.4.4",
->>>>>>> f1e5f30 (feat: update routing config in App file)
     "typescript": "5.5.4"
   },
   "lint-staged": {
@@ -33,11 +29,8 @@
     "packages/*"
   ],
   "dependencies": {
-<<<<<<< HEAD
-=======
     "framer-motion": "^12.4.1",
     "react-router-dom": "^7.1.5",
->>>>>>> f1e5f30 (feat: update routing config in App file)
     "vite": "^6.0.7"
   }
 }
