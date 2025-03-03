@@ -1,0 +1,33 @@
+{
+  "name": "@repo/utilities",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./string.utility.ts": "./utils/string.utility.ts",
+    "./url.utility.ts": "./utils/url.utility.ts",
+    "./file.utility.ts": "./utils/file.utility.ts",
+    "./input.utility.ts": "./utils/input.utility.ts",
+    "./form.utility.ts": "./utils/form.utility.ts",
+    "./datetime.utility.ts": "./utils/datetime.utility.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "generate:component": "turbo gen react-component",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@turbo/gen": "^1.12.4",
+    "@types/node": "^20.11.24",
+    "@types/react": "18.3.0",
+    "@types/react-dom": "18.3.1",
+    "typescript": "5.5.4"
+  },
+  "dependencies": {
+    "luxon": "^3.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

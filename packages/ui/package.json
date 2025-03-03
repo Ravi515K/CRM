@@ -4,11 +4,13 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./index.css": "./dist/index.css",
+    "./components": "./src/components/index.tsx",
+    "./hooks": "./src/hooks/useGlobalRouteHandler"
   },
   "scripts": {
+    "build:ui": "tailwindcss -i ./index.css -o ./dist/index.css",
+    "dev": "tailwindcss -i ./src/index.css -o ./dist/index.css --watch",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit"

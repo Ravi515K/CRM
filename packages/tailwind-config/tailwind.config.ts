@@ -21,7 +21,7 @@ const config: Omit<Config, "content"> = {
         body: "#495057",
         subHeading: "#343a40",
         heading: "#212529",
-        primary: "rgb(var(--color-primary) / <alpha-value>)",
+        primary: "#4B70F5",
         secondary: "rgb(var(--color-secondary) / <alpha-value>)",
         tertiary: "rgb(var(--color-tertiary) / <alpha-value>)",
         error: "rgb(var(--color-error) / <alpha-value>)",

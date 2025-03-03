@@ -6,6 +6,9 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "build:ui": {
+      "cache": false
+    },
     "lint": {
       "dependsOn": ["^lint"]
     },

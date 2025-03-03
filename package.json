@@ -29,7 +29,10 @@
     "packages/*"
   ],
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
     "framer-motion": "^12.4.1",
+    "luxon": "^3.5.0",
+    "react-day-picker": "^9.5.1",
     "react-router-dom": "^7.1.5",
     "vite": "^6.0.7"
   }

@@ -1,39 +1,24 @@
-import { useState } from "react";
-import { availableFields } from "./form-builder.constant";
+import {
+  UiPageWrapper,
+  UiTextInputBase
+} from "@repo/ui/components";
+import AddFieldsModal from "./components/AddFieldsModal/AddFieldsModal";
+import LeftFieldSection from "./components/Sections/LeftFieldSection";
 import { FieldType } from "./form-builder.type";
-
-
+import useFormBuilder from "./hook/useFormBuilder";
 
 const FormBuilder = () => {
-  const [formFields, setFormFields] = useState<FieldType[]>([]);
-  const [selectedField, setSelectedField] = useState<FieldType | null>(null);
+  const {
+    states: { isOpen, selectedField, formFields, setSelectedField },
+    functions: { toggleFieldModal,addField },
+  } = useFormBuilder();
 
-  const addField = (field: FieldType) => {
-    setFormFields([
-      ...formFields,
-      { ...field, id: `${field.id}-${Date.now()}` },
-    ]);
-  };
-
+  const handleSubmit = () => {};
   return (
-    <div className="flex gap-4 p-4">
-      <div className="w-1/4 border p-4">
-        <h2 className="text-body font-bold">List of Fields</h2>
-        {availableFields.map((field) => (
-          <button
-            key={field.id}
-            className="w-full p-2 mb-2 bg-gray-200 rounded hover:bg-gray-300"
-            onClick={() => addField(field)}
-          >
-            {field.label}
-          </button>
-        ))}
-        <button className="w-full p-2 mt-4 bg-blue-500 text-white rounded">
-          Add Fields
-        </button>
-      </div>
+    <UiPageWrapper className="flex gap-4 relative">
+      <LeftFieldSection toggleFieldModal={toggleFieldModal} className="" addField={addField} />
 
-      <div className="w-1/2 border p-4">
+      <div className="w-1/2 border rounded-md p-4">
         <h2 className="font-bold mb-2">Form Preview</h2>
         <div className="grid grid-cols-2 gap-4">
           {formFields.map((field: FieldType) => (
@@ -53,19 +38,20 @@ const FormBuilder = () => {
         </div>
       </div>
 
-      <div className="w-1/4 border p-4">
+      <div className="w-1/4 border rounded-md p-4">
         <h2 className="font-bold mb-2">Field Options</h2>
         {selectedField ? (
           <div>
-            <label className="block text-sm">Label</label>
-            <input
+            <UiTextInputBase
+              label="Label"
               type="text"
               value={selectedField.label}
               className="w-full p-2 border rounded mt-1"
               readOnly
             />
-            <label className="block text-sm mt-2">Placeholder</label>
-            <input
+
+            <UiTextInputBase
+              label="Placeholder"
               type="text"
               value={selectedField.placeholder || ""}
               className="w-full p-2 border rounded mt-1"
@@ -84,7 +70,15 @@ const FormBuilder = () => {
           Save
         </button>
       </div>
-    </div>
+
+      {isOpen && (
+        <AddFieldsModal
+          isOpen={isOpen}
+          handleClose={toggleFieldModal}
+          handleSubmit={handleSubmit}
+        />
+      )}
+    </UiPageWrapper>
   );
 };
 

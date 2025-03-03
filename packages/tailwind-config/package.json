@@ -1,7 +1,7 @@
 {
   "name": "@repo/tailwind-config",
   "version": "0.0.0",
-  "private":true,
+  "private": true,
   "exports": {
     "./sharedConfig": "./tailwind.config.ts"
   },
@@ -11,5 +11,9 @@
   "devDependencies": {
     "@repo/typescript-config": "*",
     "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3"
   }
 }
