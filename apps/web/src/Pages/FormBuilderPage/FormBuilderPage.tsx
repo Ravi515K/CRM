@@ -1,7 +1,6 @@
-import {
-  UiPageWrapper,
-  UiTextInputBase
-} from "@repo/ui/components";
+import { UiPageWrapper, UiTextInputBase } from "@repo/ui/components";
+import { useContext } from "react";
+import { FormBuilderContext } from "../../context/FormBuilderContext";
 import AddFieldsModal from "./components/AddFieldsModal/AddFieldsModal";
 import LeftFieldSection from "./components/Sections/LeftFieldSection";
 import { FieldType } from "./form-builder.type";
@@ -9,23 +8,27 @@ import useFormBuilder from "./hook/useFormBuilder";
 
 const FormBuilder = () => {
   const {
-    states: { isOpen, selectedField, formFields, setSelectedField },
-    functions: { toggleFieldModal,addField },
+    states:{isOpen},
+    functions: { toggleFieldModal },
   } = useFormBuilder();
-
+  const formBuilderContext = useContext(FormBuilderContext);
   const handleSubmit = () => {};
   return (
     <UiPageWrapper className="flex gap-4 relative">
-      <LeftFieldSection toggleFieldModal={toggleFieldModal} className="" addField={addField} />
+      <LeftFieldSection
+        toggleFieldModal={toggleFieldModal}
+        className=""
+      
+      />
 
       <div className="w-1/2 border rounded-md p-4">
         <h2 className="font-bold mb-2">Form Preview</h2>
         <div className="grid grid-cols-2 gap-4">
-          {formFields.map((field: FieldType) => (
+          {formBuilderContext?.formFields.map((field: FieldType) => (
             <div
               key={field.id}
               className="p-2 border rounded"
-              onClick={() => setSelectedField(field)}
+              onClick={() => formBuilderContext?.setSelectedField(field)}
             >
               <label className="block text-sm font-medium">{field.label}</label>
               <input
@@ -40,12 +43,12 @@ const FormBuilder = () => {
 
       <div className="w-1/4 border rounded-md p-4">
         <h2 className="font-bold mb-2">Field Options</h2>
-        {selectedField ? (
+        {formBuilderContext?.selectedField ? (
           <div>
             <UiTextInputBase
               label="Label"
               type="text"
-              value={selectedField.label}
+              value={formBuilderContext?.selectedField.label}
               className="w-full p-2 border rounded mt-1"
               readOnly
             />
@@ -53,11 +56,11 @@ const FormBuilder = () => {
             <UiTextInputBase
               label="Placeholder"
               type="text"
-              value={selectedField.placeholder || ""}
+              value={formBuilderContext?.selectedField.placeholder || ""}
               className="w-full p-2 border rounded mt-1"
               onChange={(e) =>
-                setSelectedField({
-                  ...selectedField,
+                formBuilderContext?.setSelectedField({
+                  ...formBuilderContext?.selectedField!,
                   placeholder: e.target.value,
                 })
               }
@@ -75,7 +78,6 @@ const FormBuilder = () => {
         <AddFieldsModal
           isOpen={isOpen}
           handleClose={toggleFieldModal}
-          handleSubmit={handleSubmit}
         />
       )}
     </UiPageWrapper>

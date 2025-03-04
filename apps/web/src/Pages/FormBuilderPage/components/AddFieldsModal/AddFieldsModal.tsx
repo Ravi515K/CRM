@@ -1,26 +1,33 @@
 import {
   UiButton,
   UiDrawerWrapper,
+  UiModalContainer,
   UiSelector,
-  UiTextInput
+  UiTextInput,
 } from "@repo/ui/components";
 import { ArrowRight } from "lucide-react";
 import { Controller, FormProvider, useForm } from "react-hook-form";
 import { availableFields } from "../../form-builder.constant";
+import { FormBuilderContext } from "../../../../context/FormBuilderContext";
+import { useContext } from "react";
 const AddFieldsModal = ({
   isOpen,
   handleClose,
-  handleSubmit,
 }: {
   isOpen: boolean;
   handleClose: () => void;
-  handleSubmit: (data: any) => void;
 }) => {
   const formMethods = useForm<any>();
+  const formBuilderContext = useContext(FormBuilderContext);
+  const handleSubmit = (data: any) => {
+    formBuilderContext?.addField(data?.type);
+    handleClose()
+  };
   return (
-    <UiDrawerWrapper
+    <UiModalContainer
       isOpen={isOpen}
-      HeadSection={
+      handleCloseModal={handleClose}
+      headSection={
         <section className="flex flex-col">
           <h2 className="text-md font-semibold text-heading">Add Fields</h2>
           <p className="text-sm font-medium text-darkGray">
@@ -32,9 +39,9 @@ const AddFieldsModal = ({
       <FormProvider {...formMethods}>
         <form
           onSubmit={formMethods.handleSubmit(handleSubmit)}
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-4 w-[500px]"
         >
-          <div className="grid grid-cols-2  ring-1 ring-offWhite rounded  px-2">
+          <div className="flex flex-col gap-4  ring-1 ring-offWhite rounded  p-2">
             <UiTextInput name="name" label="Name" />
             <Controller
               name="type"
@@ -42,6 +49,7 @@ const AddFieldsModal = ({
               render={({ field: { value, onChange } }) => {
                 return (
                   <UiSelector
+                    label="Select Field Type"
                     value={value}
                     options={availableFields}
                     onChange={onChange}
@@ -68,7 +76,7 @@ const AddFieldsModal = ({
           </div>
         </form>
       </FormProvider>
-    </UiDrawerWrapper>
+    </UiModalContainer>
   );
 };
 

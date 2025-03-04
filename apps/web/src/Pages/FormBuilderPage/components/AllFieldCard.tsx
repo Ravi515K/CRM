@@ -1,24 +1,25 @@
 import { GripVertical, PencilIcon, Trash2Icon } from "lucide-react";
 import { Reorder } from "motion/react";
-import { useState } from "react";
-import { availableFields } from "../form-builder.constant";
-import { FieldType } from "../form-builder.type";
-const AllFieldCard = ({
-  addField,
-}: {
-  addField: (item: FieldType) => void;
-}) => {
-  const [items, setItems] = useState(availableFields);
+import { useContext } from "react";
+import { FormBuilderContext } from "../../../context/FormBuilderContext";
+const AllFieldCard = () => {
+  const formBuilderContext = useContext(FormBuilderContext);
+
   return (
     <div>
-      <Reorder.Group axis="y" values={items} onReorder={setItems} className="">
+      <Reorder.Group
+        axis="y"
+        values={formBuilderContext?.formFields || []}
+        onReorder={formBuilderContext?.setFormFields}
+        className=""
+      >
         <section className="flex flex-col gap-4">
-          {items.map((item) => (
+          {formBuilderContext?.formFields?.map((item) => (
             <Reorder.Item key={item?.id} value={item}>
               <div
                 className="flex items-center gap-8 border border-offWhite p-2"
                 onClick={() => {
-                  addField(item);
+                  formBuilderContext?.addField(item);
                 }}
               >
                 <GripVertical className="size-4" />

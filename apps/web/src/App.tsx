@@ -5,21 +5,24 @@ import SidebarWrapper from "./components/Wrappers/SidebarWrapper";
 // import Opportunity from "./Pages/HomePage/Components/Opportunity";
 // import { AnimatePresence } from "framer-motion";
 import { lazy, Suspense } from "react";
+import { FormBuilderContextProvider } from "./context/FormBuilderContext";
 const FormBuilderPage = lazy(
   () => import("./Pages/FormBuilderPage/FormBuilderPage")
 );
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
-        <div className="w-full h-screen flex items-start">
-          <SidebarWrapper>
-            <Routes>
-              <Route path="/" element={<FormBuilderPage />} />
-            </Routes>
-          </SidebarWrapper>
-        </div>
-      </Suspense>
+      <FormBuilderContextProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <div className="w-full h-screen flex items-start">
+            <SidebarWrapper>
+              <Routes>
+                <Route path="/" element={<FormBuilderPage />} />
+              </Routes>
+            </SidebarWrapper>
+          </div>
+        </Suspense>
+      </FormBuilderContextProvider>
     </BrowserRouter>
   );
 }

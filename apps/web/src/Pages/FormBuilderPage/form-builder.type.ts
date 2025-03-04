@@ -1,5 +1,7 @@
 type FieldType = {
   id: string;
+  name:string;
+  code:string;
   label: string;
   type: string;
   placeholder?: string;
