@@ -7,6 +7,7 @@ interface IFormBuilderProps {
   selectedField: FieldType | null;
   setSelectedField: Dispatch<SetStateAction<FieldType | null>>;
   addField: (item: FieldType) => void;
+  deleteField:(id:number)=>void;
 }
 const FormBuilderContext = createContext<IFormBuilderProps | null>(null);
 
@@ -18,12 +19,12 @@ const FormBuilderContextProvider = ({
   const [formFields, setFormFields] = useState<FieldType[]>([]);
   const [selectedField, setSelectedField] = useState<FieldType | null>(null);
   const addField = (field: FieldType) => {
-    console.log(field)
     setFormFields([...formFields, field]);
-    console.log(formFields)
+  };
+  const deleteField = (id: number) => {
+    setFormFields((prevFields) => prevFields.filter((field) => Number(field.id) !== id));
   };
 
-  console.log(formFields)
   return (
     <FormBuilderContext.Provider
       value={{
@@ -32,6 +33,7 @@ const FormBuilderContextProvider = ({
         selectedField,
         setSelectedField,
         addField,
+        deleteField
       }}
     >
       {children}

@@ -9,8 +9,8 @@ const LeftFieldSection = ({
   className: string;
 }) => {
   return (
-    <div className={`w-1/4 border rounded-md p-4 relative ${className}`}>
-      <h2 className="text-body font-bold">List of Fields</h2>
+    <div className={`w-1/4 rounded-md p-4 bg-white relative ${className}`}>
+      <h2 className="font-bold mb-2">Components</h2>
       <AllFieldCard />
 
       <UiButton

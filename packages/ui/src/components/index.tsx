@@ -11,6 +11,7 @@ import UiMenuDrop from "./DropMenu/UiMenuDrop";
 import UiPopoverBasic from "./DropMenu/UiPopoverBasic";
 import UiSearchListDrop from "./DropMenu/UiSearchListDrop";
 import UiPageWrapper from "./Wrappers/UiPageWrapper";
+import UiSwitch from "./Switch/UiSwitch";
 
 export {
   UiModalContainer,
@@ -25,5 +26,6 @@ export {
   UiMenuDrop,
   UiPopoverBasic,
   UiSearchListDrop,
-  UiPageWrapper
+  UiPageWrapper,
+  UiSwitch
 };

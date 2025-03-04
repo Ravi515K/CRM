@@ -1,12 +1,19 @@
-import { FieldType } from "./form-builder.type";
-
-const availableFields: FieldType[] = [
-  { id: "1", name: "Name", code: "name", label: "Name", type: "text", isSelected: false },
-  { id: "2", name: "Email", code: "email", label: "Email", type: "email", isSelected: false },
-  { id: "3", name: "Phone", code: "phone", label: "Phone", type: "tel", isSelected: false },
-  { id: "4", name: "Gender", code: "gender", label: "Gender", type: "select", isSelected: false },
-  { id: "5", name: "IsSmoker", code: "isSmoker", label: "Is Smoker", type: "checkbox", isSelected: false },
-  { id: "6", name: "Selector", code: "selector", label: "Selector", type: "select", isSelected: false },
+const fieldTypeArr = [
+  { id: "1", name: "Input", code: "input" },
+  { id: "2", name: "Selector", code: "selector" },
+  { id: "3", name: "Checkbox", code: "checkbox" },
+  { id: "4", name: "Calender", code: "calender" },
 ];
-
-export { availableFields };
+const gridSizeArr = [
+  { id: "1", name: "Col-Span-1", code: "col-pan-1", value: "1" },
+  { id: "2", name: "Col-Span-2", code: "col-span-2", value: "2" },
+  { id: "3", name: "Col-Span-3", code: "col-span-3", value: "3" },
+];
+const inputTypeArr = [
+  { id: "1", name: "Text", code: "text" },
+  { id: "2", name: "Email", code: "email" },
+  { id: "3", name: "Date", code: "date" },
+  { id: "4", name: "Password", code: "password" },
+  { id: "5", name: "Phone", code: "tel" },
+]
+export { fieldTypeArr, gridSizeArr, inputTypeArr };

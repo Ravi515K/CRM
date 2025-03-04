@@ -1,15 +1,14 @@
 type FieldType = {
-  id: string;
-  name:string;
-  code:string;
-  label: string;
-  type: string;
+  id: string | number;
+  name: string;
   placeholder?: string;
-  isSelected?:boolean;
-  field_key?:string;
-  grid_size?:string;
+  type: string;
+  label: string;
+  grid_size: {id:string,name:string,code:string,value:string}
+  field_key: string;
+  min?: number;
+  max?: number;
+  options?: any;
 };
-// fileType-type of file
-//Date- MinDate, MaxDate, isRange, isMultiSelect
-//type - (text, number=> length)
+
 export type { FieldType };
