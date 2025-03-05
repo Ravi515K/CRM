@@ -14,8 +14,9 @@ const FormPreviewSection = () => {
   const [checked, setChecked] = useState(false);
   const formBuilderContext = useContext(FormBuilderContext);
 
-  const Fields = ({ field }: { field: FieldType }) => {
-    const { label, type, name, placeholder } = field;
+  const Fields = ({ field }: { field: any }) => {
+    const { label, type, name, placeholder, input_type } = field;
+    console.log(input_type)
     switch (type) {
       case "input":
         return (
@@ -23,7 +24,7 @@ const FormPreviewSection = () => {
             name={name}
             label={label}
             placeholder={placeholder}
-            type={type}
+            type={input_type}
             containerClass="gap-1"
           />
         );

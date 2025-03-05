@@ -14,11 +14,8 @@ const FormBuilder = () => {
   return (
     <UiPageWrapper className="flex gap-2 relative bg-offWhite">
       <LeftFieldSection toggleFieldModal={toggleFieldModal} className="" />
-
       <FormPreviewSection />
-
       <RightFieldSection />
-
       {isOpen && (
         <AddFieldsModal isOpen={isOpen} handleClose={toggleFieldModal} />
       )}

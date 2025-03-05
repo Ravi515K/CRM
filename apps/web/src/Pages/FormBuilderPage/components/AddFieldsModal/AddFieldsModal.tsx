@@ -62,9 +62,9 @@ const AddFieldsModal = ({
       <FormProvider {...formMethods}>
         <form
           onSubmit={formMethods.handleSubmit(handleSubmit)}
-          className="flex flex-col gap-4 w-[500px]"
+          className="flex flex-col gap-4 w-[500px] "
         >
-          <div className="flex flex-col gap-4  ring-1 ring-offWhite rounded  p-2">
+          <div className="flex flex-col gap-4  ring-1 ring-offWhite rounded  p-2 h-[calc(100vh-230px)] overflow-y-auto">
             <UiTextInput name="label" label="Label" />
             <Controller
               name="type"
@@ -89,7 +89,7 @@ const AddFieldsModal = ({
                   render={({ field: { value, onChange } }) => {
                     return (
                       <UiSelector
-                        label="Field Type"
+                        label="Input Type"
                         value={value}
                         options={inputTypeArr}
                         onChange={onChange}
@@ -106,7 +106,7 @@ const AddFieldsModal = ({
                 )}
               </>
             )}
-            {!["date"].includes(formMethods?.watch("type")?.code) && (
+            {!["date"].includes(formMethods?.watch("input_type")?.code) && (
               <UiTextInput name="placeholder" label="PlaceHolder" />
             )}
             <UiTextInput name="field_key" label="Field Key" />
