@@ -12,7 +12,6 @@ const SidebarWrapper = ({ children }: { children?: any }) => {
         <SideBar open={open} setOpen={setOpen} />
       </section>
       <section className="flex flex-col gap-4 flex-1">
-        {/* <Navbar /> */}
         {children}
       </section>
     </div>
