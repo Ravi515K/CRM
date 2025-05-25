@@ -19,11 +19,11 @@ const SideBar = ({
       exit={{ opacity: 0, scale: 0, width: 0 }}
       key="box"
       data-open={open}
-      className="w-full h-full flex flex-col  data-[open=false]:items-center"
+      className="w-full h-full flex flex-col  data-[open=false]:items-center border"
     >
       <aside>
         <button
-          className="flex items-center gap-6 py-2 w-full"
+          className="flex items-center gap-6 py-2 w-full z-20"
           onClick={() => {
             setOpen(!open);
           }}

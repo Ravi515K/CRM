@@ -85,7 +85,7 @@ import UiButton from "../Button/UiButton";
             data-iserror={errorMessage ? true : false}
             className={`inputGroup h-10 w-full text-sm 
                 text-body font-semibold px-2 py-1 placeholder:font-medium placeholder:text-darkGray/80 outline-none rounded  
-                 z-10 border border-offWhite focus:border-primary/50 disabled:cursor-not-allowed disabled:opacity-70 disabled:bg-extraLightGray/30 
+                 z-10 border border-gray focus:border-primary/50 disabled:cursor-not-allowed disabled:opacity-70 disabled:bg-extraLightGray/30 
                   ${className}`}
             min={min}
             max={max}

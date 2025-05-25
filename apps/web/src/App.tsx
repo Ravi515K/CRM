@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <FormBuilderContextProvider>
         <Suspense fallback={<div>Loading...</div>}>
-          <div className="w-full flex items-start">
+          <div className="w-full flex">
             <SidebarWrapper>
               <Routes>
                 <Route path="/*" element={<HomeRouting />} />
